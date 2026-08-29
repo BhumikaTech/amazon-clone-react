@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import Home from "./Home";
-import Cart from "./cart";
+import Cart from "./Cart";
 import ProductDetails from "./ProductDetails";
 import Orders from "./order";
 import Checkout from "./Checkout";
