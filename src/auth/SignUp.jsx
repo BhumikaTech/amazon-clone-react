@@ -24,7 +24,7 @@ function SignUp() {
 
         try {
             const response = await fetch(
-                "https://amazon-backend-0jvw.onrender.com/users/register",
+                "https://amazon-clone-react-rz9a.onrender.com/users/register",
                 {
                     method: "POST",
                     headers: {
