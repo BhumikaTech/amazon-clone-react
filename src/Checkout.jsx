@@ -52,7 +52,7 @@ function Checkout({ cartItems = [] }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/orders",
+        "https://amazon-backend-0jvw.onrender.com/orders",
         {
           method: "POST",
 

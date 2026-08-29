@@ -16,7 +16,7 @@ function Orders() {
 
       try {
         const response = await fetch(
-          "http://localhost:5000/orders",
+          "https://amazon-backend-0jvw.onrender.com/orders",
           {
             headers: {
               Authorization: `Bearer ${token}`,
