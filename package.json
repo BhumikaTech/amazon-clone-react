@@ -13,7 +13,6 @@
     "detect-libc": "^2.1.2",
     "fdir": "^6.5.0",
     "lightningcss": "^1.33.0",
-    "lightningcss-win32-x64-msvc": "^1.33.0",
     "nanoid": "^3.3.16",
     "oxlint": "^1.75.0",
     "picocolors": "^1.1.1",
