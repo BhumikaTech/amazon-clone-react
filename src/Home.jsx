@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import NavBottom from "./NavBottom";
+import NavBottom from "./Navbottom";
 import Hero from "./Hero";
 import Shop from "./Shop";
 import ProductSlider from "./Productslider";
