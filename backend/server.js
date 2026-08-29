@@ -1,48 +1,51 @@
-require("dotenv").config();
-
 const express = require("express");
 const cors = require("cors");
+const dotenv = require("dotenv");
 
 const connectDB = require("./db");
 
+const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
 const cartRoutes = require("./routes/cartRoutes");
 const orderRoutes = require("./routes/orderRoutes");
+const protectedRoutes = require("./routes/protectedRoutes");
 
 const authMiddleware = require("./middleware/authMiddleware");
 const adminMiddleware = require("./middleware/adminMiddleware");
+
+dotenv.config();
 
 const app = express();
 
 
 // =========================
-// MIDDLEWARE
+// DEBUG
 // =========================
 
-app.use(cors());
+console.log("authMiddleware:", typeof authMiddleware);
+console.log("adminMiddleware:", typeof adminMiddleware);
+console.log("JWT SECRET EXISTS:", !!process.env.JWT_SECRET);
+
+
+// =========================
+// CORS
+// =========================
+
+app.use(
+    cors({
+        origin: "https://amazon-clone-react-1.onrender.com",
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"]
+    })
+);
+
+
+// =========================
+// BODY PARSER
+// =========================
 
 app.use(express.json());
-
-
-// =========================
-// CHECK MIDDLEWARE
-// =========================
-
-console.log(
-    "authMiddleware:",
-    typeof authMiddleware
-);
-
-console.log(
-    "adminMiddleware:",
-    typeof adminMiddleware
-);
-
-console.log(
-    "JWT SECRET EXISTS:",
-    !!process.env.JWT_SECRET
-);
 
 
 // =========================
@@ -53,39 +56,56 @@ connectDB();
 
 
 // =========================
-// ROUTES
-// =========================
-
-app.use(
-    "/users",
-    userRoutes
-);
-
-app.use(
-    "/products",
-    productRoutes
-);
-
-app.use(
-    "/cart",
-    cartRoutes
-);
-
-app.use(
-    "/orders",
-    orderRoutes
-);
-
-
-// =========================
 // TEST ROUTE
 // =========================
 
 app.get("/", (req, res) => {
     res.json({
-        message: "Amazon Clone API is running"
+        message: "Amazon Clone Backend is running"
     });
 });
+
+
+// =========================
+// AUTH ROUTES
+// =========================
+
+app.use("/auth", authRoutes);
+
+
+// =========================
+// USER ROUTES
+// =========================
+
+app.use("/users", userRoutes);
+
+
+// =========================
+// PRODUCT ROUTES
+// =========================
+
+app.use("/products", productRoutes);
+
+
+// =========================
+// CART ROUTES
+// =========================
+
+app.use("/cart", cartRoutes);
+
+
+// =========================
+// ORDER ROUTES
+// =========================
+
+app.use("/orders", orderRoutes);
+
+
+// =========================
+// PROTECTED ROUTES
+// =========================
+
+app.use("/protected", protectedRoutes);
 
 
 // =========================
@@ -93,13 +113,11 @@ app.get("/", (req, res) => {
 // =========================
 
 app.use((err, req, res, next) => {
-    console.error(
-        "SERVER ERROR:",
-        err
-    );
+    console.error(err);
 
     res.status(500).json({
-        message: "Internal server error"
+        message: "Server error",
+        error: err.message
     });
 });
 
@@ -111,7 +129,5 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-    console.log(
-        `Server running on port ${PORT}`
-    );
+    console.log(`Server running on port ${PORT}`);
 });
