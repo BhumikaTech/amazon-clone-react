@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  height: 60px;
+  background-color: #131921;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/* Logo */
+
+.nav-logo {
+  width: 110px;
+  height: 50px;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/amazon_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Address */
+
+.nav-address {
+  color: white;
+}
+
+.add-first {
+  color: #cccccc;
+  font-size: 12px;
+  margin-left: 15px;
+}
+
+.add-icon {
+  display: flex;
+  align-items: center;
+}
+
+.add-second {
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Search */
+
+.nav-search {
+  display: flex;
+  width: 620px;
+  height: 40px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.search-select {
+  width: 50px;
+  border: none;
+  background: #f3f3f3;
+  text-align: center;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  padding-left: 10px;
+  font-size: 15px;
+}
+
+.search-icon {
+  width: 45px;
+  background: #febd69;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 20px;
+}
+
+/* Language */
+
+.nav-lan {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.nav-lan p {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Sign In & Orders */
+
+.nav-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nav-text p {
+  font-size: 12px;
+}
+
+.nav-text a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-text h1 {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+}
+
+/* Mobile User */
+
+.mobile-user-icon img {
+  width: 30px;
+}
+
+/* Cart */
+
+.nav-cart {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-cart img {
+  width: 35px;
+}
+
+.nav-cart h4 {
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+#cartCount {
+  color: orange;
+  font-weight: bold;
+}

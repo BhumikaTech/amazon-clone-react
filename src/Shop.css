@@ -1,0 +1,10 @@
+.shop-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: #e3e6e6;
+  margin-top:-140px;
+  position: relative;
+  z-index: 1;
+  padding: 20px 0;
+}

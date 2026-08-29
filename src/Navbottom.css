@@ -1,0 +1,43 @@
+.nav-bottom {
+  height: 40px;
+  background-color: #232f3e;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 15px;
+  font-size: 14px;
+}
+
+.nav-bottom p {
+  cursor: pointer;
+  padding: 8px 6px;
+  border: 1px solid transparent;
+}
+
+.nav-bottom p:hover {
+  border: 1px solid white;
+}
+
+.nav-bottom-all {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px 6px;
+  border: 1px solid transparent;
+}
+
+.nav-bottom-all:hover {
+  border: 1px solid white;
+}
+
+.nav-bottom-all img {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-bottom-all p {
+  font-weight: bold;
+  padding: 0;
+}
