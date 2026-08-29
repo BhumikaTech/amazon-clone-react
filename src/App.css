@@ -11,11 +11,17 @@
   &:hover {
     border-color: var(--accent-border);
   }
+
   &:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
   }
 }
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero {
   position: relative;
@@ -42,8 +48,8 @@
     z-index: 1;
     top: 34px;
     height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
+    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg)
+      rotateY(39deg) scale(1.4);
   }
 
   .vite {
@@ -51,10 +57,15 @@
     top: 107px;
     height: 26px;
     width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg)
+      rotateY(39deg) scale(0.8);
   }
 }
+
+
+/* =========================================================
+   CENTER
+   ========================================================= */
 
 #center {
   display: flex;
@@ -70,6 +81,11 @@
   }
 }
 
+
+/* =========================================================
+   NEXT STEPS
+   ========================================================= */
+
 #next-steps {
   display: flex;
   border-top: 1px solid var(--border);
@@ -78,6 +94,7 @@
   & > div {
     flex: 1 1 0;
     padding: 32px;
+
     @media (max-width: 1024px) {
       padding: 24px 20px;
     }
@@ -88,97 +105,549 @@
     width: 22px;
     height: 22px;
   }
+}
 
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
+
+/* =========================================================
+   GLOBAL RESPONSIVE FIX
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #center {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #next-steps {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
-#docs {
-  border-right: 1px solid var(--border);
 
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
+/* =========================================================
+   TABLET - 769px TO 1024px
+   ========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  /* NAVBAR */
+
+  .navbar,
+  .nav {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* HERO */
+
+  .hero,
+  .hero-section {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .hero img,
+  .hero-section img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* SHOP */
+
+  .shop,
+  .shop-section,
+  .shop-container {
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .box,
+  .product-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .box img,
+  .product-card img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* DEALS */
+
+  .deals,
+  .deals-section,
+  .deals-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
   }
 }
 
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
 
+/* =========================================================
+   MOBILE - UP TO 768px
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  body {
+    min-width: 0;
+  }
+
+
+  /* =======================================================
+     NAVBAR
+     ======================================================= */
+
+  .navbar,
+  .nav {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .nav-logo,
   .logo {
-    height: 18px;
+    max-width: 110px;
+    min-width: 0;
   }
 
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
+  .nav-logo img,
+  .logo img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .nav-search,
+  .search-container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+
+  /* =======================================================
+     HERO
+     ======================================================= */
+
+  .hero,
+  .hero-section {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 220px;
+    overflow: hidden;
+  }
+
+  .hero img,
+  .hero-section img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .hero-content {
+    width: 90%;
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(24px, 6vw, 40px);
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+  }
+
+  .hero p {
+    max-width: 100%;
+    font-size: clamp(14px, 4vw, 20px);
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  .hero button {
+    max-width: 55px;
+    max-height: 55px;
+  }
+
+
+  /* =======================================================
+     SHOP / CATEGORY CARDS
+     ======================================================= */
+
+  .shop,
+  .shop-section,
+  .shop-container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .box {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 12px;
+    overflow: hidden;
+  }
+
+  .box img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .box h1,
+  .box h2,
+  .box h3,
+  .box h4 {
+    max-width: 100%;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  .box h2,
+  .box h3 {
+    font-size: clamp(17px, 5vw, 24px);
+  }
+
+
+  /* =======================================================
+     TODAY'S DEALS
+     ======================================================= */
+
+  .deals,
+  .deals-section,
+  .deals-container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 25px 15px;
+    overflow: hidden;
+  }
+
+  .deals h1,
+  .deals h2,
+  .deals-section h1,
+  .deals-section h2 {
+    max-width: 100%;
+    font-size: 28px;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  .product-container,
+  .products-container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .product-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+  }
+
+  .product-card img {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  .product-card h1,
+  .product-card h2,
+  .product-card h3,
+  .product-card p {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .product-card h2,
+  .product-card h3 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .product-card button {
+    width: 100%;
+    max-width: 100%;
+  }
+
+
+  /* =======================================================
+     FOOTER
+     ======================================================= */
+
+  footer {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    padding: 30px 15px;
+  }
+
+  footer img {
+    display: block;
+    max-width: 180px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  footer p,
+  footer a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  footer h2,
+  footer h3 {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+
+  /* =======================================================
+     FLOATING BUTTONS
+     ======================================================= */
+
+  .floating-buttons,
+  .side-buttons {
+    right: 10px;
+    max-width: 50px;
+  }
+
+  .floating-buttons button,
+  .side-buttons button {
+    width: 45px;
+    height: 45px;
+    margin: 4px 0;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE - UP TO 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  /* NAVBAR */
+
+  .navbar,
+  .nav {
+    width: 100%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .nav-logo,
+  .logo {
+    max-width: 85px;
+  }
+
+  .search-input {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+
+  /* HERO */
+
+  .hero,
+  .hero-section {
+    min-height: 190px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero button {
+    width: 40px;
+    height: 40px;
+  }
+
+
+  /* CATEGORY */
+
+  .shop,
+  .shop-section,
+  .shop-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 10px;
     gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
   }
 
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+  .box {
+    padding: 8px;
+  }
 
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
+  .box h2,
+  .box h3 {
+    font-size: 17px;
+  }
 
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
+
+  /* DEALS */
+
+  .deals,
+  .deals-section,
+  .deals-container {
+    padding: 20px 10px;
+  }
+
+  .deals h1,
+  .deals h2,
+  .deals-section h1,
+  .deals-section h2 {
+    font-size: 24px;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+  .product-card h2,
+  .product-card h3 {
+    font-size: 19px;
+  }
+
+
+  /* FOOTER */
+
+  footer {
+    padding: 25px 10px;
+  }
+
+  footer h2,
+  footer h3 {
+    font-size: 20px;
+  }
+
+  footer p,
+  footer a {
+    font-size: 14px;
+  }
+
+
+  /* FLOATING BUTTONS */
+
+  .floating-buttons,
+  .side-buttons {
+    right: 5px;
+  }
+
+  .floating-buttons button,
+  .side-buttons button {
+    width: 42px;
+    height: 42px;
   }
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
 
-.ticks {
-  position: relative;
-  width: 100%;
+/* =========================================================
+   EXTRA SMALL PHONES - UP TO 360px
+   ========================================================= */
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
+@media (max-width: 360px) {
+
+  .shop,
+  .shop-section,
+  .shop-container {
+    grid-template-columns: 1fr;
   }
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+  .hero h1 {
+    font-size: 22px;
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  .product-card {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .product-card h2,
+  .product-card h3 {
+    font-size: 18px;
   }
 }
